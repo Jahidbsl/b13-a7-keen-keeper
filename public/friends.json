@@ -1,0 +1,98 @@
+[
+    {
+      "id": 1,
+      "name": "Sarah Jenkins",
+      "picture": "/assets/friends1.jpg",
+      "email": "sarah.j@outlook.com",
+      "days_since_contact": "5",
+      "status": "on-track",
+      "tags": ["college", "tech", "hiking"],
+      "bio": "Studied Computer Science together. She recently started a role as a Senior Dev and we enjoy trail running on weekends.",
+      "goal": 14,
+      "next_due_date": "2026-04-23"
+    },
+    {
+      "id": 2,
+      "name": "Marcus Chen",
+      "picture": "/assets/friends2.jpg",
+      "email": "m.chen@designstudio.io",
+      "days_since_contact": "19",
+      "status": "overdue",
+      "tags": ["work", "mentor", "design"],
+      "bio": "My first creative director. He taught me everything about UI/UX. Haven't checked in since his daughter was born.",
+      "goal": 14,
+      "next_due_date": "2026-04-09"
+    },
+    {
+      "id": 3,
+      "name": "Elena Rodriguez",
+      "picture": "/assets/friends3.jpg",
+      "email": "elena.rod@gmail.com",
+      "days_since_contact": "13",
+      "status": "almost-due",
+      "tags": ["childhood", "hometown", "close friend"],
+      "bio": "Grew up on the same street in Madrid. She's visiting next month and we need to finalize the travel itinerary.",
+      "goal": 14,
+      "next_due_date": "2026-04-15"
+    },
+    {
+      "id": 4,
+      "name": "David Kwomo",
+      "picture": "/assets/friends4.jpg",
+      "email": "david.k@fitnesshub.com",
+      "days_since_contact": "45",
+      "status": "overdue",
+      "tags": ["gym", "basketball", "active"],
+      "bio": "Former college basketball teammate. We usually grab coffee to discuss startup ideas and workout routines.",
+      "goal": 30,
+      "next_due_date": "2026-03-30"
+    },
+    {
+      "id": 5,
+      "name": "Jamie Vough",
+      "picture": "/assets/friends5.jpg",
+      "email": "jvough@indie-records.org",
+      "days_since_contact": "10",
+      "status": "on-track",
+      "tags": ["music", "vinyl", "concerts"],
+      "bio": "Met at a jazz festival. Always keeps me updated on local underground gigs and rare vinyl finds.",
+      "goal": 21,
+      "next_due_date": "2026-04-25"
+    },
+    {
+      "id": 6,
+      "name": "Priya Sharma",
+      "picture": "/assets/friends6.jpg",
+      "email": "priya.s@innovate.io",
+      "days_since_contact": "28",
+      "status": "almost-due",
+      "tags": ["entrepreneur", "networking", "investor"],
+      "bio": "A brilliant founder I met at a tech mixer. We trade advice on scaling small businesses and remote work culture.",
+      "goal": 30,
+      "next_due_date": "2026-04-16"
+    },
+    {
+      "id": 7,
+      "name": "Alex Thompson",
+      "picture": "/assets/friends7.jpg",
+      "email": "alex.t@freelance.net",
+      "days_since_contact": "3",
+      "status": "on-track",
+      "tags": ["gaming", "coding", "close friend"],
+      "bio": "Gaming buddy for over 5 years. We're currently collaborating on a small open-source React project.",
+      "goal": 7,
+      "next_due_date": "2026-04-18"
+    },
+    {
+      "id": 8,
+      "name": "Sophia Lee",
+      "picture": "/assets/friends8.jpg",
+      "email": "slee.arts@gallery.com",
+      "days_since_contact": "65",
+      "status": "overdue",
+      "tags": ["neighbor", "travel", "photography"],
+      "bio": "Former roommate who moved to Berlin. She’s an incredible street photographer and we shared a flat for 3 years.",
+      "goal": 60,
+      "next_due_date": "2026-02-08"
+    }
+  ]
