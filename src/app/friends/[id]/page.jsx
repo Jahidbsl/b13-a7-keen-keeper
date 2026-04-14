@@ -7,7 +7,7 @@ import React, { useContext, use } from "react";
 export default function FriendsDetailsPage({ params }) {
   const { friends } = useContext(FriendsContext);
 
-  // ✅ unwrap params
+ 
   const { id } = use(params);
 
   if (!friends || friends.length === 0) {
