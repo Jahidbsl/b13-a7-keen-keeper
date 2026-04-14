@@ -45,7 +45,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link href="/">
-            <Image src={navLogo} alt="Logo" height={100} width={100} />
+            <Image src={navLogo} alt="Logo" height={150} width={150} />
           </Link>
         </div>
         <div className="navbar-end hidden lg:flex">
