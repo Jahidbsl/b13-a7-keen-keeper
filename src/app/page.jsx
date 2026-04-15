@@ -5,8 +5,9 @@ export const metadata = {
 
 
 import { FaPlus } from "react-icons/fa";
-import Friends from "@/components/friends/Friends";
+
 import FriendsStats from "@/components/friendsStats/FriendsStats";
+import Friends from "./friends/page";
 export default function Home() {
   
   return (
@@ -29,7 +30,9 @@ export default function Home() {
     <FriendsStats></FriendsStats>
       {/* friends Grid */}
       <Friends></Friends>
-  
+
+      
+ 
     </section>
   );
 }

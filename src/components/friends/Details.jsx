@@ -17,6 +17,10 @@ const Details = ({ friend }) => {
     goal,
     next_due_date,
   } = friend;
+
+  const callHandel =()=>{
+    console.log('call now')
+  }
   return (
     <div className="min-h-screen bg-[#F9FAFB] p-6 md:p-12 font-sans text-[#111827]">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8">
@@ -117,7 +121,8 @@ const Details = ({ friend }) => {
               Quick Check-In
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <button className="flex flex-col items-center justify-center gap-4 bg-[#F9FAFB] p-8 md:p-12 rounded-2xl hover:bg-gray-100 transition border border-gray-100 group">
+              <button onClick={()=>callHandel()}
+               className="flex flex-col items-center justify-center gap-4 bg-[#F9FAFB] p-8 md:p-12 rounded-2xl hover:bg-gray-100 transition border border-gray-100 group">
                 <PiPhone
                   size={32}
                   className="text-gray-400 group-hover:text-blue-500 transition-colors"
