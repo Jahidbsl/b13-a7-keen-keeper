@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { BiArchive, BiMessageSquare, BiMoon, BiVideo } from "react-icons/bi";
+
 import { CgEditExposure } from "react-icons/cg";
-import { PiPhone } from "react-icons/pi";
+
 import { TbTrash } from "react-icons/tb";
+import Contacts from "../contacts/Contacts";
+import { BiArchive, BiMoon } from "react-icons/bi";
 
 const Details = ({ friend }) => {
   const {
@@ -18,17 +20,22 @@ const Details = ({ friend }) => {
     next_due_date,
   } = friend;
 
-  const callHandel =()=>{
-    console.log('call now')
-  }
   return (
     <div className="min-h-screen bg-[#F9FAFB] p-6 md:p-12 font-sans text-[#111827]">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8">
         <div className="flex flex-col gap-5">
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex flex-col items-center text-center">
-            <div className="relative w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-gray-50 ring-1 ring-gray-200">
-              <Image src={picture} alt={name} fill className="object-cover" />
-            </div>
+            <figure className="pt-6 px-4">
+              <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32">
+                <Image
+                  src={picture}
+                  alt={name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="rounded-full object-cover border-4 border-slate-50 shadow-inner"
+                />
+              </div>
+            </figure>
 
             <h2 className="text-xl font-bold text-[#1F2937]">{name}</h2>
 
@@ -65,7 +72,6 @@ const Details = ({ friend }) => {
             </p>
           </div>
 
-          
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
             <button className="w-full flex items-center justify-center gap-3 p-4 hover:bg-gray-50 border-b border-gray-50 text-gray-700 transition font-medium">
               <BiMoon size={18} />
@@ -80,7 +86,6 @@ const Details = ({ friend }) => {
           </div>
         </div>
 
-      
         <div className="flex flex-col gap-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 text-center">
@@ -120,30 +125,7 @@ const Details = ({ friend }) => {
             <h4 className="text-lg font-bold text-[#064E3B] mb-8">
               Quick Check-In
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <button onClick={()=>callHandel()}
-               className="flex flex-col items-center justify-center gap-4 bg-[#F9FAFB] p-8 md:p-12 rounded-2xl hover:bg-gray-100 transition border border-gray-100 group">
-                <PiPhone
-                  size={32}
-                  className="text-gray-400 group-hover:text-blue-500 transition-colors"
-                />
-                <span className="font-bold text-gray-900">Call</span>
-              </button>
-              <button className="flex flex-col items-center justify-center gap-4 bg-[#F9FAFB] p-8 md:p-12 rounded-2xl hover:bg-gray-100 transition border border-gray-100 group">
-                <BiMessageSquare
-                  size={32}
-                  className="text-gray-400 group-hover:text-green-500 transition-colors"
-                />
-                <span className="font-bold text-gray-900">Text</span>
-              </button>
-              <button className="flex flex-col items-center justify-center gap-4 bg-[#F9FAFB] p-8 md:p-12 rounded-2xl hover:bg-gray-100 transition border border-gray-100 group">
-                <BiVideo
-                  size={32}
-                  className="text-gray-400 group-hover:text-purple-500 transition-colors"
-                />
-                <span className="font-bold text-gray-900">Video</span>
-              </button>
-            </div>
+         <Contacts friendId={friend.id}></Contacts>
           </div>
         </div>
       </div>

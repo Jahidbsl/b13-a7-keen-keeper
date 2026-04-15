@@ -9,14 +9,14 @@ import { HashLoader } from "react-spinners";
 const Friends = () => {
 const { friends } = useContext(FriendsContext);
 
-// if (!friends || friends.length === 0) {
-//     return (
-//       <div className="h-[60vh] flex flex-col justify-center items-center gap-4">
-//         <HashLoader color="#244D3F" size={60} />
-//         <p className="text-slate-500 font-medium animate-pulse">Loading friends...</p>
-//       </div>
-//     );
-//   }
+if (!friends || friends.length === 0) {
+    return (
+      <div className="h-[60vh] flex flex-col justify-center items-center gap-4">
+        <HashLoader color="#244D3F" size={60} />
+        <p className="text-slate-500 font-medium animate-pulse">Loading friends...</p>
+      </div>
+    );
+  }
   return (
     <div className="max-w-7xl mx-auto mt-12 px-4 border-t border-slate-100 pt-12 mb-20">
       <div className=" mb-8">

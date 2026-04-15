@@ -13,6 +13,7 @@ const FriendsCards = ({ friend }) => {
               src={picture}
               alt={name}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="rounded-full object-cover border-4 border-slate-50 shadow-inner"
             />
           </div>

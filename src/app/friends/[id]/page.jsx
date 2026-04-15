@@ -1,5 +1,6 @@
 "use client";
 
+
 import Details from "@/components/friends/Details";
 import { FriendsContext } from "@/context/FriendsContextProvider";
 import React, { useContext, use } from "react";
@@ -30,7 +31,7 @@ export default function FriendsDetailsPage({ params }) {
 
   return (
     <div>
-      <Details friend={friend} />
+      <Details friend={friend}></Details>
     </div>
   );
 }
