@@ -25,9 +25,9 @@
     },
     {
       "id": 3,
-      "name": "Elena Rodriguez",
+      "name": "Elen Mask",
       "picture": "/assets/friends3.jpg",
-      "email": "elena.rod@gmail.com",
+      "email": "elen.rod@gmail.com",
       "days_since_contact": "13",
       "status": "almost-due",
       "tags": ["childhood", "hometown", "close friend"],
@@ -61,9 +61,9 @@
     },
     {
       "id": 6,
-      "name": "Priya Sharma",
+      "name": "Anup Sharma",
       "picture": "/assets/friends6.jpg",
-      "email": "priya.s@innovate.io",
+      "email": "anup.s@innovate.io",
       "days_since_contact": "28",
       "status": "almost-due",
       "tags": ["entrepreneur", "networking", "investor"],
