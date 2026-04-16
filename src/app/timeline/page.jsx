@@ -1,13 +1,32 @@
 "use client";
 import { FriendsContext } from "@/context/FriendsContextProvider";
 import Image from "next/image";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { BiPhoneCall, BiMessageDetail, BiVideo } from "react-icons/bi";
+import { IoMdArrowDropdown } from "react-icons/io";
 import { HashLoader } from "react-spinners";
 
 const Timeline = () => {
+  const [sortingType, setSortingType] = useState("");
   const [activities, setActivities] = useState([]);
   const { friends } = useContext(FriendsContext);
+  const shortedTimeLineList = useMemo(() => {
+    let list = [...activities];
+
+    if (sortingType === "call") {
+      return list.filter((item) => item.type === "Call");
+    }
+
+    if (sortingType === "text") {
+      return list.filter((item) => item.type === "Text");
+    }
+
+    if (sortingType === "video") {
+      return list.filter((item) => item.type === "Video");
+    }
+
+    return list;
+  }, [sortingType, activities]);
 
   useEffect(() => {
     const savedData = JSON.parse(localStorage.getItem("saveTimeLine") || "[]");
@@ -23,23 +42,52 @@ const Timeline = () => {
 
   if (!friends || friends.length === 0) {
     return (
-      <div className="text-center p-10 font-medium">  <HashLoader color="#244D3F" size={60} /> </div>
+      <div className="text-center p-10 font-medium">
+        {" "}
+        <HashLoader color="#244D3F" size={60} />{" "}
+      </div>
     );
   }
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h2 className="text-2xl font-bold text-gray-800 mb-8 border-b pb-4">
-        Activity Timeline
-      </h2>
+      <div className="flex justify-between items-center mb-8 border-b border-base-300 pb-4">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-800 ">
+            Activity Timeline
+          </h2>
+        </div>
+        <div className="dropdown dropdown-center ">
+          <div tabIndex={0} role="button" className="btn m-1">
+            Sort By {sortingType || "All"} <IoMdArrowDropdown />
+          </div>
+          <ul
+            tabIndex="-1"
+            className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+          >
+            <li onClick={() => setSortingType("")}>
+              <a>All</a>
+            </li>
+            <li onClick={() => setSortingType("call")}>
+              <a>Call</a>
+            </li>
+            <li onClick={() => setSortingType("text")}>
+              <a>Text</a>
+            </li>
+            <li onClick={() => setSortingType("video")}>
+              <a>Video</a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-      {activities.length === 0 ? (
+      {shortedTimeLineList.length === 0 ? (
         <div className="text-center py-10 text-gray-500">
           <p>No activities recorded yet. Go to contacts and make a call!</p>
         </div>
       ) : (
         <div className="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gray-200">
-          {activities.map((item) => {
+          {shortedTimeLineList.map((item) => {
             const friend = friends.find(
               (f) => String(f.id) === String(item.friendId),
             );
