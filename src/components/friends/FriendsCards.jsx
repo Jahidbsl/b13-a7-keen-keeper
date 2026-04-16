@@ -21,7 +21,7 @@ const FriendsCards = ({ friend }) => {
 
         <div className="card-body items-center text-center p-4 sm:p-6">
           <div className="space-y-1">
-            <h2 className="card-title text-lg sm:text-xl font-bold text-slate-800">
+            <h2 className=" text-lg sm:text-xl font-bold text-slate-800">
               {name}
             </h2>
             <p className="text-xs sm:text-sm font-medium text-slate-400 italic">
