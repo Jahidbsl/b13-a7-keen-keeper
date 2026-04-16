@@ -62,6 +62,9 @@ const StatsPage = () => {
     </div>
   ) : (
     <div className="p-10 flex flex-col items-center gap-10">
+      <div className="text-center">
+      <h1 className="text-4xl text-[#244D3F] font-bold">Friendship Analytics</h1>
+     </div>
       <PieChart width={400} height={400}>
         {/* Outer Pie */}
         <Pie

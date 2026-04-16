@@ -1,5 +1,6 @@
 "use client";
 import { FriendsContext } from "@/context/FriendsContextProvider";
+import { Search } from "lucide-react";
 import Image from "next/image";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { BiPhoneCall, BiMessageDetail, BiVideo } from "react-icons/bi";
@@ -7,26 +8,38 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { HashLoader } from "react-spinners";
 
 const Timeline = () => {
+  const [searchName, setSearchName] = useState("");
   const [sortingType, setSortingType] = useState("");
   const [activities, setActivities] = useState([]);
   const { friends } = useContext(FriendsContext);
   const shortedTimeLineList = useMemo(() => {
     let list = [...activities];
-
-    if (sortingType === "call") {
-      return list.filter((item) => item.type === "Call");
+    if (searchName.trim() !== "") {
+      list = list.filter((item) => {
+        const friend = friends.find(
+          (f) => String(f.id) === String(item.friendId),
+        );
+        const friendName = friend?.name || item.friendName || "";
+        return friendName.toLowerCase().includes(searchName.toLowerCase());
+      });
     }
 
-    if (sortingType === "text") {
-      return list.filter((item) => item.type === "Text");
+    if (
+      sortingType === "call" ||
+      sortingType === "text" ||
+      sortingType === "video"
+    ) {
+      list = list.filter((item) => item.type.toLowerCase() === sortingType);
     }
 
-    if (sortingType === "video") {
-      return list.filter((item) => item.type === "Video");
+    if (sortingType === "oldest") {
+      list.sort((a, b) => a.id - b.id);
+    } else {
+      list.sort((a, b) => b.id - a.id);
     }
 
     return list;
-  }, [sortingType, activities]);
+  }, [sortingType, activities, searchName, friends]);
 
   useEffect(() => {
     const savedData = JSON.parse(localStorage.getItem("saveTimeLine") || "[]");
@@ -51,33 +64,68 @@ const Timeline = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <div className="flex justify-between items-center mb-8 border-b border-base-300 pb-4">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-800 ">
+      <div className="max-w-2xl mx-auto p-6">
+        <div className="mb-8 border-b border-base-300 pb-6">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">
             Activity Timeline
           </h2>
-        </div>
-        <div className="dropdown dropdown-center ">
-          <div tabIndex={0} role="button" className="btn m-1">
-            Sort By {sortingType || "All"} <IoMdArrowDropdown />
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
+            
+            <div className="relative w-full sm:max-w-sm">
+              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                <Search color="#244D3F" />
+              </div>
+              <input
+                type="text"
+                placeholder="Search name..."
+                value={searchName}
+                onChange={(e) => setSearchName(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-2xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#244D3F] transition-all shadow-sm"
+              />
+            </div>
+
+            <div className="dropdown dropdown-end w-full sm:w-auto">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost border border-gray-200 bg-white hover:bg-gray-50 rounded-2xl px-5 w-full justify-between"
+              >
+                <span className="text-gray-600 font-medium">
+                  Sort:{" "}
+                  <span className="text-gray-900 capitalize">
+                    {sortingType || "All"}
+                  </span>
+                </span>
+                <IoMdArrowDropdown className="text-gray-500" />
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu bg-white rounded-2xl z- w-52 p-2 shadow-xl border border-gray-100"
+              >
+                <li onClick={() => setSortingType("")}>
+                  <a className="rounded-xl">All Activities</a>
+                </li>
+                <div className="divider my-1 opacity-50"></div>
+                <li onClick={() => setSortingType("call")}>
+                  <a className="rounded-xl">Calls Only</a>
+                </li>
+                <li onClick={() => setSortingType("text")}>
+                  <a className="rounded-xl">Messages</a>
+                </li>
+                <li onClick={() => setSortingType("video")}>
+                  <a className="rounded-xl">Videos</a>
+                </li>
+                <div className="divider my-1 opacity-50"></div>
+                <li onClick={() => setSortingType("newest")}>
+                  <a className="rounded-xl font-medium">Newest First</a>
+                </li>
+                <li onClick={() => setSortingType("oldest")}>
+                  <a className="rounded-xl font-medium">Oldest First</a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <ul
-            tabIndex="-1"
-            className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
-          >
-            <li onClick={() => setSortingType("")}>
-              <a>All</a>
-            </li>
-            <li onClick={() => setSortingType("call")}>
-              <a>Call</a>
-            </li>
-            <li onClick={() => setSortingType("text")}>
-              <a>Text</a>
-            </li>
-            <li onClick={() => setSortingType("video")}>
-              <a>Video</a>
-            </li>
-          </ul>
         </div>
       </div>
 
