@@ -80,7 +80,7 @@ const Timeline = () => {
                 type="text"
                 placeholder="Search name..."
                 value={searchName}
-                onChange={(e) => setSearchName(e.target.value)}
+                onChange={(e) => setSearchName(e.target.value.toLocaleLowerCase())}
                 className="w-full pl-10 pr-4 py-2.5 text-sm border border-gray-200 rounded-2xl bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-[#244D3F] transition-all shadow-sm"
               />
             </div>
