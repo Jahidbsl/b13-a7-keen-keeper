@@ -43,7 +43,7 @@ To set up a local development environment:
 
 1.  **Clone & Enter:**
     ```bash
-    git clone [https://github.com/jahidhasan/KeenKeeper.git](https://github.com/jahidhasan/KeenKeeper.git) && cd KeenKeeper
+    git clone [https://github.com/Jahidbsl/b13-a7-keen-keeper.git](https://github.com/Jahidbsl/b13-a7-keen-keeper.git) && cd KeenKeeper
     ```
 
 2.  **Install Dependencies:**
