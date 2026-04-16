@@ -68,8 +68,5 @@ To set up a local development environment:
 - [ ] Dark/Light mode theme persistence.
 - [ ] Advanced User Authentication via NextAuth.
 
-## 📄 License
-Project is [MIT](LICENSE) licensed.
-
 ---
-**Crafted with precision by [Md. Jahid Hasan](https://github.com/jahidhasan)**
+**Crafted with precision by [Md. Jahid Hasan](https://github.com/Jahidbsl)**
