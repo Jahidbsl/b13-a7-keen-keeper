@@ -59,48 +59,48 @@ const StatsPage = () => {
       </Link>
     </div>
   ) : (
-    <div className="p-10 bg-base-300">
-      <h1 className="text-4xl ml-96 mb-6 text-[#244D3F] font-bold">
-        Friendship Analytics
-      </h1>
-      <div className="flex flex-col items-center gap-10 bg-base-300">
-        <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 w-fit">
-          <h3 className="font-bold text-2xl">By Interaction Type</h3>
-          <PieChart width={1000} height={400}>
-            {/* Outer Pie */}
-            <Pie
-              data={setData}
-              dataKey="value"
-              cx="50%"
-              cy="50%"
-              innerRadius={90}
-              outerRadius={120}
-              label
-            >
-              {setData.map((entry, index) => (
-                <Cell key={index} fill={entry.color} />
-              ))}
-            </Pie>
+    <div className="p-10 flex flex-col items-center gap-10">
+      <div className="text-center">
+        <h1 className="text-4xl text-[#244D3F] font-bold">
+          Friendship Analytics
+        </h1>
+      </div>
+      <div>
+        <h3 className="font-bold text-2xl text-center ">By Interaction Type</h3>
+        <PieChart width={400} height={400}>
+          {/* Outer Pie */}
+          <Pie
+            data={setData}
+            dataKey="value"
+            cx="50%"
+            cy="50%"
+            innerRadius={90}
+            outerRadius={120}
+            label
+          >
+            {setData.map((entry, index) => (
+              <Cell key={index} fill={entry.color} />
+            ))}
+          </Pie>
 
-            <Tooltip />
-            <RechartsDevtools />
-          </PieChart>
+          <Tooltip />
+          <RechartsDevtools />
+        </PieChart>
+      </div>
+      <div className="flex items-center gap-6">
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-full bg-[#244D3F]"></span>
+          <p>Call</p>
         </div>
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-[#244D3F]"></span>
-            <p>Call</p>
-          </div>
 
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-[#3B82F6]"></span>
-            <p>Text</p>
-          </div>
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-full bg-[#3B82F6]"></span>
+          <p>Text</p>
+        </div>
 
-          <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-[#10B981]"></span>
-            <p>Video</p>
-          </div>
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-full bg-[#10B981]"></span>
+          <p>Video</p>
         </div>
       </div>
     </div>
